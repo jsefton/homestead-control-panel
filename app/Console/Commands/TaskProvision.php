@@ -11,7 +11,7 @@ class TaskProvision extends Command
      *
      * @var string
      */
-    protected $signature = 'homestead:name';
+    protected $signature = 'homestead:provision';
 
     /**
      * The console command description.
