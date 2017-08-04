@@ -13,7 +13,9 @@ class Kernel extends ConsoleKernel
      * @var array
      */
     protected $commands = [
-        //
+        Commands\TaskProvision::class,
+        Commands\TaskRestart::class,
+        Commands\TaskPHPRestart::class,
     ];
 
     /**

@@ -14,3 +14,4 @@ This is a simple interface for using Homestead for local development. It allows 
 - Make an interface to add a new site
 - Make console command for adding a new site, used by interface and available to users
 - Detected Homestead.yaml and VagrantFile location, if not then allow config file to specify or install console command
+- Add ability to have multiple homestead boxes
