@@ -9,6 +9,11 @@ class Homestead extends Model
     protected $fillable = ['box_name', 'ip_address', 'yaml_location', 'vagrant_file_location'];
 
 
+    public function sites()
+    {
+        return $this->hasMany('\App\Site');
+    }
+
     public function powerStatus()
     {
         $host = $this->ip_address;

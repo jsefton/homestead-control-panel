@@ -15,6 +15,11 @@ class CreateSitesTable extends Migration
     {
         Schema::create('sites', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('homestead_id')->unsigned();
+            $table->foreign('homestead_id')->references('id')->on('homesteads');
+            $table->string('site_name')->nullable();
+            $table->string('site_domain')->nullable();
+            $table->string('site_path')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });

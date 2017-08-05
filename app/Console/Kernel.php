@@ -18,6 +18,7 @@ class Kernel extends ConsoleKernel
         Commands\TaskPHPRestart::class,
         Commands\TaskShutdown::class,
         Commands\TaskPowerOn::class,
+        Commands\TaskFetchSites::class,
     ];
 
     /**

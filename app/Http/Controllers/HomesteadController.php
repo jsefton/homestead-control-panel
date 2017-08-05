@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Homestead;
 use App\Jobs\ExecuteTask;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Artisan;
+use Symfony\Component\Yaml\Yaml;
 
 class HomesteadController extends Controller
 {
@@ -16,8 +16,12 @@ class HomesteadController extends Controller
 
     public function store(Request $request)
     {
-        Homestead::create($request->all());
-        return redirect('/');
+        $data = Homestead::create($request->all());
+
+        // After creation run import of sites
+        Artisan::call('homestead:sites-fetch', ['--box' => $data->id]);
+
+        return redirect('/homestead/' . $data->id);
     }
 
     public function view($id)
@@ -30,8 +34,6 @@ class HomesteadController extends Controller
     {
         $command = 'homestead:' . $task . " --box=" . $id;
         dispatch(new ExecuteTask($command));
-        //die;
-
         session()->forget('tail_offset');
         return view('layouts.terminal')->with(['logTitle' => 'Running Task: ' . $task]);
     }

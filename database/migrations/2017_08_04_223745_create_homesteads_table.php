@@ -19,6 +19,8 @@ class CreateHomesteadsTable extends Migration
             $table->string('ip_address')->nullable();
             $table->string('yaml_location')->nullable();
             $table->string('vagrant_file_location')->nullable();
+            $table->integer('cpus')->nullable();
+            $table->integer('memory')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });
