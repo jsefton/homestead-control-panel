@@ -15,7 +15,12 @@ class CreateHomesteadsTable extends Migration
     {
         Schema::create('homesteads', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('box_name')->nullable();
+            $table->string('ip_address')->nullable();
+            $table->string('yaml_location')->nullable();
+            $table->string('vagrant_file_location')->nullable();
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

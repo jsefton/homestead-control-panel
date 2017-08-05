@@ -5,9 +5,8 @@ namespace App\Console\Commands;
 use App\Homestead;
 use Illuminate\Console\Command;
 
-class TaskProvision extends Command
+class TaskPowerOn extends Command
 {
-
     use PrependsOutput, PrependsTimestamp;
 
     /**
@@ -15,14 +14,14 @@ class TaskProvision extends Command
      *
      * @var string
      */
-    protected $signature = 'homestead:provision {--box=}';
+    protected $signature = 'homestead:power {--box=}';
 
     /**
      * The console command description.
      *
      * @var string
      */
-    protected $description = 'Runs provision task on Homestead box';
+    protected $description = 'Power On Homestead box';
 
     /**
      * Create a new command instance.
@@ -52,8 +51,8 @@ class TaskProvision extends Command
             $this->error('No box found with ID: ' . $id);
             exit;
         }
-        $this->info('Starting provision on of box: ' . $box->box_name);
-        exec('cd ' . $box->vagrant_file_location . ' && vagrant provision > ' .  storage_path() . "/logs/artisan-tasks.log");
+        $this->info('Starting power on of box: ' . $box->box_name);
+        exec('cd ' . $box->vagrant_file_location . ' && vagrant up > ' .  storage_path() . "/logs/artisan-tasks.log");
 
         $this->info('Complete!');
     }

@@ -7,3 +7,17 @@
 
 // Bootstrap
 @import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
+
+
+.wrapper {
+  font-size: 18px;
+
+  .panel--btns {
+    text-align: right;
+    margin-bottom: 20px;
+  }
+
+  .btn, .alert {
+    border-radius: 0;
+  }
+}

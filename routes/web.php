@@ -11,6 +11,14 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::get('/', 'DashboardController@index');
+
+Route::group(['prefix' => '/homestead'], function(){
+   Route::get('/add', 'HomesteadController@addBox');
+   Route::post('/add', 'HomesteadController@store');
+
+   Route::get('/{id}', 'HomesteadController@view');
+   Route::get('/{id}/task/{task}', 'HomesteadController@task');
 });
+
+Route::get('/terminal/tail/{log}', 'TerminalController@view');

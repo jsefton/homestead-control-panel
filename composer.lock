@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "96098e473b028cdb2529580554a1ae3e",
+    "content-hash": "5de0ab3d0d7469fc75f132f3c004de1a",
     "packages": [
         {
             "name": "dnoegel/php-xdg-base-dir",
@@ -234,6 +234,49 @@
                 }
             ],
             "time": "2015-04-20T18:58:01+00:00"
+        },
+        {
+            "name": "jsefton/migrate-environments",
+            "version": "1.1.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/jsefton/migrate-environments.git",
+                "reference": "7180400e72e41e2d2df593e6e6b0a5117c8dac46"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/jsefton/migrate-environments/zipball/7180400e72e41e2d2df593e6e6b0a5117c8dac46",
+                "reference": "7180400e72e41e2d2df593e6e6b0a5117c8dac46",
+                "shasum": ""
+            },
+            "require": {
+                "laravel/framework": "5.3.* | 5.4.*"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Jsefton": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Jamie Sefton",
+                    "email": "info@jamie-sefton.co.uk"
+                }
+            ],
+            "description": "Allows you to target additional environments to run migrations",
+            "homepage": "https://github.com/jsefton/migrate-environments",
+            "keywords": [
+                "environment",
+                "laravel",
+                "migrate",
+                "migrations"
+            ],
+            "time": "2017-08-04T22:02:52+00:00"
         },
         {
             "name": "laravel/framework",
