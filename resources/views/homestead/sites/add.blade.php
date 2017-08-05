@@ -33,6 +33,13 @@
                             <input type="text" class="form-control" name="database_name" id="database_name" placeholder="Database Name">
                         </div>
                     </div>
+                    <p class="alert alert-info">This task requires `sudo` to add the site to your `/etc/hosts`. Please enter your password below:</p>
+                    <div class="form-group">
+                        <label for="user_password" class="col-lg-3 control-label">Local User Pasword</label>
+                        <div class="col-lg-9">
+                            <input type="password" class="form-control" name="user_password" id="user_password" placeholder="">
+                        </div>
+                    </div>
                     <div class="form-group">
                         <div class="col-lg-10 col-lg-offset-2 text-right">
                             <button type="submit" class="btn btn-primary">Add Site</button>

@@ -32,34 +32,25 @@
                 @endif
             </div>
 
-            @if(request()->get('log'))
-                <div id="terminal" class="-load-show -active">
-                    <div class="page-header">
-                        <h2>Logs</h2>
-                        <div class="btn btn-default btn--close">Hide</div>
-                    </div>
-
-                    <iframe src="{{ url('/terminal/tail-view/artisan-tasks.log') }}" frameborder="0"></iframe>
-                    <p class="alert alert-info">There are no logs to show yet.</p>
+            <div id="terminal" @if(request()->get('log')) class="-load-show -active" @endif>
+                <div class="page-header">
+                    <h2>Logs</h2>
+                    <div class="btn btn-default btn--close">@if(request()->get('log')) Hide @else Show @endif</div>
                 </div>
-            @else
-                <div id="terminal">
-                    <div class="page-header">
-                        <h2>Logs</h2>
-                        <div class="btn btn-default btn--close">Show</div>
-                    </div>
 
-                    <iframe src="" frameborder="0"></iframe>
-                    <p class="alert alert-info">There are no logs to show yet.</p>
-                </div>
-            @endif
+                <iframe src="{{ url('/terminal/tail-view/artisan-tasks.log') }}" frameborder="0"></iframe>
+                <p class="alert alert-info">There are no logs to show yet.</p>
+            </div>
+
 
             <div class="page-header">
                 <h2>Sites ({{ $box->sites->count() }})</h2>
             </div>
+            @if($box->powerStatus())
             <div class="panel--btns">
                 <a href="{{ url('/homestead/' . $box->id . '/sites/add') }}" class="btn btn-success">Add New Site</a>
             </div>
+            @endif
             @if($box->sites->count() > 0)
                 <table class="table">
                     <thead>

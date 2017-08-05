@@ -45,12 +45,14 @@ class HomesteadController extends Controller
         return view('homestead.sites.add')->with(['box' => $homestead]);
     }
 
+
     public function storeSite(Request $request, $id)
     {
         $command = 'homestead:add-site --box=' . $id . ' --domain=' . $request->get('site_domain') . ' --folder=' . $request->get('site_path');
         if($request->get('database_name')) {
             $command .= ' --db=' . $request->get('database_name');
         }
+
         $job = (new ExecuteTask($command))->delay(Carbon::now()->addSeconds(3));
         dispatch($job);
 
