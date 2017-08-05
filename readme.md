@@ -2,13 +2,11 @@
 
 This is a simple interface for using Homestead for local development. It allows you to view specific site logs along with add features such as:
 
-- Adding a new site
-- Remove a site
+- Adding & removing of a site
 - View PHP & NGIX logs of a specific site
 - Re-provision box
 - Restart PHP
 - Reboot box
-- View all current sites
 - Import and Export all Homestead Databases
 
 <img src="https://pbs.twimg.com/media/DGcH7ZLXsAA4Xkl.jpg:large" width="100%">
