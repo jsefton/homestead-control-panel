@@ -9,6 +9,8 @@ This is a simple interface for using Homestead for local development. It allows 
 - Reset PHP
 - Reboot box
 
+<img src="https://pbs.twimg.com/media/DGcH7ZLXsAA4Xkl.jpg:large" width="100%">
+
 ## Installation
 
 To power this tool it requires the use of Valet. Please follow the installation guide on Laravel docs: https://laravel.com/docs/5.4/valet
