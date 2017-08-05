@@ -23,4 +23,10 @@ class TerminalController extends Controller
 
         }
     }
+
+    public function tail($log)
+    {
+        session()->forget('tail_offset');
+        return view('layouts.terminal')->with(['logTitle' => 'Log Viewer']);
+    }
 }

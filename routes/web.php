@@ -21,7 +21,11 @@ Route::group(['prefix' => '/homestead'], function(){
    Route::get('/{id}/task/{task}', 'HomesteadController@task');
 
    Route::get('/{id}/sites/refresh', 'HomesteadController@fetchSites');
+
+   Route::get('/{id}/sites/add', 'HomesteadController@addSite');
+   Route::post('/{id}/sites/add', 'HomesteadController@storeSite');
 });
 
 
 Route::get('/terminal/tail/{log}', 'TerminalController@view');
+Route::get('/terminal/tail-view/{log}', 'TerminalController@tail');

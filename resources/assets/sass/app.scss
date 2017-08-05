@@ -38,5 +38,11 @@
     .alert{
       display: none;
     }
+
+    &.-load-show {
+      iframe{
+        display: block;
+      }
+    }
   }
 }

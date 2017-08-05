@@ -19,6 +19,7 @@ class Kernel extends ConsoleKernel
         Commands\TaskShutdown::class,
         Commands\TaskPowerOn::class,
         Commands\TaskFetchSites::class,
+        Commands\TaskAddSite::class,
     ];
 
     /**

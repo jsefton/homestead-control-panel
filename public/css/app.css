@@ -8380,3 +8380,7 @@ button.close {
   display: none;
 }
 
+.wrapper #terminal.-load-show iframe {
+  display: block;
+}
+
