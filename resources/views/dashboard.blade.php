@@ -4,14 +4,12 @@
     <div class="jumbotron">
         <h1>Welcome</h1>
         <p>This is a simple interface for controlling your local Homestead boxes in one place. You can add sites, monitor and run restart services directly from within this interface.</p>
+        <a href="{{ url('/homestead/add') }}" class="btn btn-success btn-lg">Add Homestead Box</a>
     </div>
 
     <div class="panel panel-default">
         <div class="panel-heading">Homestead Boxes</div>
         <div class="panel-body">
-            <div class="panel--btns">
-                <a href="{{ url('/homestead/add') }}" class="btn btn-success btn-lg">Add Homestead Box</a>
-            </div>
             @if($boxes->count() == 0)
                 <p class="alert alert-info">You don't have any Homestead boxes added currently.</p>
             @else
@@ -30,7 +28,7 @@
                     @foreach($boxes as $box)
                         <tr>
                             <td>{!! $box->box_name !!}</td>
-                            <td>@if($box->powerStatus()) <span class="label label-primary">On</span> @else <span class="label label-danger">Off</span> @endif</td>
+                            <td><input type="checkbox" class="power-toggle" data-box="{{ $box->id }}" @if($box->powerStatus()) checked @endif data-toggle="toggle"></td>
                             <td>{!! $box->sites->count() !!}</td>
                             <td>{!! $box->yaml_location !!}</td>
                             <td>{!! $box->vagrant_file_location !!}</td>
@@ -42,4 +40,19 @@
             @endif
         </div>
     </div>
+    <script>
+        $(function() {
+            $('.power-toggle').change(function() {
+                var boxId = $(this).data('box');
+                var requestUrl = '/homestead/' + boxId + '/task/';
+                if($(this).prop('checked')) {
+                    requestUrl += 'power';
+                } else {
+                    requestUrl += 'shutdown';
+                }
+
+                $.get(requestUrl,function(){});
+            })
+        })
+    </script>
 @endsection

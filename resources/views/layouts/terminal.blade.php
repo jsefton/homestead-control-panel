@@ -45,7 +45,7 @@
     <script src="http://creativecouple.github.com/jquery-timing/jquery-timing.min.js"></script>
     <script>
         $(function() {
-            $.repeat(2500, function() {
+            $.repeat(1000, function() {
                 $.get('/terminal/tail/{{ $log or 'artisan-tasks.log' }}', function(data) {
                     $('#tail').append(data);
                     if(data) {

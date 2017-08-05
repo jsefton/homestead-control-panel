@@ -48,7 +48,12 @@ class TaskTailLogs extends Command
         $logPath = '/var/log/nginx/' . $site->site_domain . '-error.log';
         $output = shell_exec('ssh vagrant@' . $box->ip_address . ' cat ' . $logPath);
         if($output == "") {
-            $output = "No errors to show :)";
+            // Fallback for newer / single site installations of homestead to try laravel.log file
+            $logPath = $site->site_path . '/../storage/logs/laravel.log';
+            $output = shell_exec('ssh vagrant@' . $box->ip_address . ' cat ' . $logPath);
+            if($output == "") {
+                $output = "No errors to show :)";
+            }
         }
         file_put_contents(storage_path() . '/logs/site-log-' . $site->id . '.log', $output);
     }
