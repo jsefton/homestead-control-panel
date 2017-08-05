@@ -21,14 +21,12 @@ First clone down this repository and move inside it:
 git clone git@github.com:jsefton/homestead-control-panel.git && cd homestead-control-panel
 ```
 
-Next link up Valet for the specific site:
+Run the `make` command to install the needed features:
+
 ```bash
-valet link homestead-control
+make
 ```
-Copy the environment example file. You should not need to change anything inside this
-```bash
-cp .env.example .env
-```
+
 Connect to your Valet MySQL and create a database called `homestead-control`
 
 Then run migrations:
