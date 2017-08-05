@@ -65,7 +65,7 @@
                             <tr>
                                 <td><a href="http://{!! $site->site_domain !!}" target="_blank">{!! $site->site_domain !!}</a></td>
                                 <td>{!! $site->site_path !!}</td>
-                                <td><a href="{{ url('/homestead/' . $box->id . '/sites/' . $site->id) }}" class="btn btn-default">Manage</a></td>
+                                <td>@if($box->powerStatus()) <a href="{{ url('/homestead/' . $box->id . '/sites/' . $site->id) }}" class="btn btn-default">Manage</a> @endif</td>
                             </tr>
                         @endforeach
                     </tbody>

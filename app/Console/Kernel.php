@@ -21,6 +21,8 @@ class Kernel extends ConsoleKernel
         Commands\TaskFetchSites::class,
         Commands\TaskAddSite::class,
         Commands\TaskTailLogs::class,
+        Commands\TaskExportDatabase::class,
+        Commands\TaskExportDatabases::class,
     ];
 
     /**

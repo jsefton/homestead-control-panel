@@ -54,7 +54,7 @@
                 });
             });
 
-            @if($siteLog)
+            @if(isset($siteLog))
                 $.repeat(3000, function() {
                 $.get('/terminal/fetch-log/{{ $siteLog }}', function(data) { });
             });
