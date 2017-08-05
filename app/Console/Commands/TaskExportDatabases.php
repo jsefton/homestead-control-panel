@@ -52,5 +52,6 @@ class TaskExportDatabases extends Command
         $command = 'mysqldump -P 3306 -h ' . $box->ip_address . ' -u homestead -psecret --all-databases > ' . storage_path() . '/app/backup-box-' . $box->id . '-' . date("Y-m-d_H_i_s") . '-all_databases_backup.sql';
         $output = shell_exec($command);
         $this->info('Exported all databases from box: ' . $box->box_name);
+        $this->line('Stored in: ' . storage_path() . '/app/backup-box-' . $box->id . '-' . date("Y-m-d_H_i_s") . '-all_databases_backup.sql');
     }
 }

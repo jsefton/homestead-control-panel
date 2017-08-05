@@ -17,6 +17,7 @@
                         </div>
                     </div>
                     <a href="{{ url('/homestead/' . $box->id . '/task/sites-fetch') }}" class="terminal-task btn btn-default btn-lg">Refresh Site List</a>
+                    <a href="{{ url('/homestead/' . $box->id . '/task/db-export-all') }}" class="terminal-task btn btn-warning btn-lg">Export all databases</a>
                     <a href="{{ url('/homestead/' . $box->id . '/task/provision') }}" class="terminal-task btn btn-info btn-lg">Provision Box</a>
                     <a href="{{ url('/homestead/' . $box->id . '/task/shutdown') }}" class="terminal-task btn btn-danger btn-lg">Shutdown Box</a>
                 @else
