@@ -20,6 +20,7 @@ class Kernel extends ConsoleKernel
         Commands\TaskPowerOn::class,
         Commands\TaskFetchSites::class,
         Commands\TaskAddSite::class,
+        Commands\TaskTailLogs::class,
     ];
 
     /**

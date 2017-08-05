@@ -45,14 +45,21 @@
     <script src="http://creativecouple.github.com/jquery-timing/jquery-timing.min.js"></script>
     <script>
         $(function() {
-            $.repeat(1000, function() {
-                $.get('/terminal/tail/artisan-task.log', function(data) {
+            $.repeat(2500, function() {
+                $.get('/terminal/tail/{{ $log or 'artisan-tasks.log' }}', function(data) {
                     $('#tail').append(data);
                     if(data) {
                         window.scrollTo(0, document.body.scrollHeight);
                     }
                 });
             });
+
+            @if($siteLog)
+                $.repeat(3000, function() {
+                $.get('/terminal/fetch-log/{{ $siteLog }}', function(data) { });
+            });
+
+            @endif
         });
     </script>
 </head>

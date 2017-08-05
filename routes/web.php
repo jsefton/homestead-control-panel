@@ -22,10 +22,15 @@ Route::group(['prefix' => '/homestead'], function(){
 
    Route::get('/{id}/sites/refresh', 'HomesteadController@fetchSites');
 
+
    Route::get('/{id}/sites/add', 'HomesteadController@addSite');
+
    Route::post('/{id}/sites/add', 'HomesteadController@storeSite');
+   Route::get('/{id}/sites/{siteId}', 'HomesteadController@viewSite');
 });
 
 
 Route::get('/terminal/tail/{log}', 'TerminalController@view');
 Route::get('/terminal/tail-view/{log}', 'TerminalController@tail');
+Route::get('/terminal/site-log/{id}', 'TerminalController@siteLog');
+Route::get('/terminal/fetch-log/{id}', 'TerminalController@fetchLog');

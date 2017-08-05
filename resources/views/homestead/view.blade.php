@@ -57,13 +57,15 @@
                     <tr>
                         <th>Domain</th>
                         <th>Folder</th>
+                        <th></th>
                     </tr>
                     </thead>
                     <tbody>
                         @foreach($box->sites as $site)
                             <tr>
-                                <td>{!! $site->site_domain !!}</td>
+                                <td><a href="http://{!! $site->site_domain !!}" target="_blank">{!! $site->site_domain !!}</a></td>
                                 <td>{!! $site->site_path !!}</td>
+                                <td><a href="{{ url('/homestead/' . $box->id . '/sites/' . $site->id) }}" class="btn btn-default">Manage</a></td>
                             </tr>
                         @endforeach
                     </tbody>

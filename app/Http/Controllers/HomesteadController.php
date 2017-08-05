@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Homestead;
 use App\Jobs\ExecuteTask;
+use App\Site;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Artisan;
@@ -45,7 +46,6 @@ class HomesteadController extends Controller
         return view('homestead.sites.add')->with(['box' => $homestead]);
     }
 
-
     public function storeSite(Request $request, $id)
     {
         $command = 'homestead:add-site --box=' . $id . ' --domain=' . $request->get('site_domain') . ' --folder=' . $request->get('site_path');
@@ -64,5 +64,12 @@ class HomesteadController extends Controller
         dispatch($job);
 
         return redirect('/homestead/' . $id . '?log=show');
+    }
+
+    public function viewSite($boxId, $siteId)
+    {
+        $homestead = Homestead::find($boxId);
+        $site = Site::find($siteId);
+        return view('homestead.sites.view')->with(['box' => $homestead, 'site' => $site]);
     }
 }
