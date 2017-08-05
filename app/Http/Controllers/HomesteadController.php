@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Homestead;
 use App\Jobs\ExecuteTask;
 use Illuminate\Http\Request;
-use Symfony\Component\Yaml\Yaml;
+use Illuminate\Support\Facades\Artisan;
 
 class HomesteadController extends Controller
 {
