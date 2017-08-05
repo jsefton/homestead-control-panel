@@ -53,6 +53,9 @@ class HomesteadController extends Controller
             $command .= ' --db=' . $request->get('database_name');
         }
 
+        $password = $request->get('user_password');
+        $command .= ' --userpass=' . $password;
+
         $job = (new ExecuteTask($command))->delay(Carbon::now()->addSeconds(3));
         dispatch($job);
 

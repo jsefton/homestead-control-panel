@@ -16,7 +16,7 @@ class TaskAddSite extends Command
      *
      * @var string
      */
-    protected $signature = 'homestead:add-site {--box=} {--domain=} {--folder=} {--db=}';
+    protected $signature = 'homestead:add-site {--box=} {--domain=} {--folder=} {--db=} {--userpass=}';
 
     /**
      * The console command description.
@@ -101,6 +101,15 @@ class TaskAddSite extends Command
 
         // Copy temp Yaml back to primary location that is used
         exec('cp -aR ' . storage_path() . '/app/box-' . $box->id . '.yaml ' . $box->yaml_location . '');
+
+
+        // Add to /etc/hosts
+        if($this->option('userpass')) {
+            $password = $this->option('userpass');
+            $command = 'echo \'' . $password . '\' | sudo -S echo "' . $box->ip_address . '   ' . $this->option('domain') . '" >> /etc/hosts';
+            shell_exec($command);
+        }
+
 
         $box->ip_address = $yaml['ip'];
         $box->cpus = $yaml['cpus'];

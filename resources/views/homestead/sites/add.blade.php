@@ -10,21 +10,15 @@
                 <fieldset>
                     <legend>Site Information</legend>
                     <div class="form-group">
-                        <label for="site-name" class="col-lg-3 control-label">Site Name</label>
-                        <div class="col-lg-9">
-                            <input type="text" class="form-control" name="site_name" id="site-name" placeholder="Site Name">
-                        </div>
-                    </div>
-                    <div class="form-group">
                         <label for="site_domain" class="col-lg-3 control-label">Site Domain</label>
                         <div class="col-lg-9">
-                            <input type="text" class="form-control" name="site_domain" id="site_domain" value="" placeholder="Site Domain">
+                            <input type="text" class="form-control" name="site_domain" id="site_domain" value="" placeholder="Site Domain" required>
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="site_path" class="col-lg-3 control-label">Site Directory</label>
                         <div class="col-lg-9">
-                            <input type="text" class="form-control" name="site_path" id="site_path" placeholder="/home/vagrant/Code/">
+                            <input type="text" class="form-control" name="site_path" id="site_path" placeholder="/home/vagrant/Code/" required>
                         </div>
                     </div>
                     <div class="form-group">
@@ -37,7 +31,7 @@
                     <div class="form-group">
                         <label for="user_password" class="col-lg-3 control-label">Local User Pasword</label>
                         <div class="col-lg-9">
-                            <input type="password" class="form-control" name="user_password" id="user_password" placeholder="">
+                            <input type="secret" class="form-control" name="user_password" id="user_password" placeholder="" required>
                         </div>
                     </div>
                     <div class="form-group">
