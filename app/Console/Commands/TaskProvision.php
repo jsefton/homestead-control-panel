@@ -53,7 +53,12 @@ class TaskProvision extends Command
             exit;
         }
         $this->info('Starting provision on of box: ' . $box->box_name);
-        exec('cd ' . $box->vagrant_file_location . ' && vagrant provision > ' .  storage_path() . "/logs/artisan-tasks.log");
+        if($box->homestead_alias) {
+            exec('homestead provision > ' . storage_path() . "/logs/artisan-tasks.log");
+        } else {
+            exec('cd ' . $box->vagrant_file_location . ' && vagrant provision > ' .  storage_path() . "/logs/artisan-tasks.log");
+        }
+
 
         $this->info('Complete!');
     }

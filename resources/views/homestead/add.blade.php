@@ -34,6 +34,23 @@
                         </div>
                     </div>
                     <div class="form-group">
+                        <label class="col-lg-3 control-label">Do you use alias of 'homestead'?</label>
+                        <div class="col-lg-9">
+                            <div class="radio">
+                                <label>
+                                    <input type="radio" name="homestead_alias" value="1">
+                                    Yes
+                                </label>
+                            </div>
+                            <div class="radio">
+                                <label>
+                                    <input type="radio" name="homestead_alias" value="0" checked>
+                                    No
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
                         <div class="col-lg-10 col-lg-offset-2 text-right">
                             <button type="submit" class="btn btn-primary">Add Box</button>
                             <a href="{{ url('/') }}" class="btn btn-default">Cancel</a>

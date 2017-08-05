@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Homestead extends Model
 {
-    protected $fillable = ['box_name', 'ip_address', 'yaml_location', 'vagrant_file_location'];
+    protected $fillable = ['box_name', 'ip_address', 'yaml_location', 'vagrant_file_location', 'homestead_alias'];
 
 
     public function sites()

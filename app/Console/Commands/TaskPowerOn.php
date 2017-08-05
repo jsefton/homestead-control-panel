@@ -52,7 +52,12 @@ class TaskPowerOn extends Command
             exit;
         }
         $this->info('Starting power on of box: ' . $box->box_name);
-        exec('cd ' . $box->vagrant_file_location . ' && vagrant up > ' .  storage_path() . "/logs/artisan-tasks.log");
+        if($box->homestead_alias) {
+            exec('homestead up > ' . storage_path() . "/logs/artisan-tasks.log");
+        } else {
+            exec('cd ' . $box->vagrant_file_location . ' && vagrant up > ' .  storage_path() . "/logs/artisan-tasks.log");
+        }
+
 
         $this->info('Complete!');
     }

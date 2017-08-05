@@ -21,6 +21,7 @@ class CreateHomesteadsTable extends Migration
             $table->string('vagrant_file_location')->nullable();
             $table->integer('cpus')->nullable();
             $table->integer('memory')->nullable();
+            $table->integer('homestead_alias')->nullable()->default(0);
             $table->timestamps();
             $table->softDeletes();
         });
