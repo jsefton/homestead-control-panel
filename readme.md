@@ -36,6 +36,11 @@ Then run migrations:
 php artisan migrate
 ```
 
+The final step is to start a queue worker, this is essential for any of the background long processes to be done:
+```bash
+php artisan queue:work
+```
+
 Then just visit: http://homestead-control.dev
 
 ### TO DO

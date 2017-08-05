@@ -14,7 +14,7 @@
             font-size: 14px;
             line-height: 1.42857143;
             color: #FFFFFF;
-            background-color: #002b36;
+            background-color: #01303c;
             margin: 0;
             padding: 0;
         }
