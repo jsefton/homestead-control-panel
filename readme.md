@@ -6,8 +6,10 @@ This is a simple interface for using Homestead for local development. It allows 
 - Remove a site
 - View PHP & NGIX logs of a specific site
 - Re-provision box
-- Reset PHP
+- Restart PHP
 - Reboot box
+- View all current sites
+- Import and Export all Homestead Databases
 
 <img src="https://pbs.twimg.com/media/DGcH7ZLXsAA4Xkl.jpg:large" width="100%">
 
@@ -33,8 +35,6 @@ cp .env.example .env
 Then just visit: http://homestead-control.dev
 
 ### TO DO
-- Make an interface that can list out all the registered sites within Homestead
 - Make an interface to add a new site
 - Make console command for adding a new site, used by interface and available to users
-- Detected Homestead.yaml and VagrantFile location, if not then allow config file to specify or install console command
-- Add ability to have multiple homestead boxes
+- Add ability to export and then import all databases from an entire box
