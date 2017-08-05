@@ -20,4 +20,23 @@
   .btn, .alert {
     border-radius: 0;
   }
+
+  #terminal{
+
+    .btn--close {
+      float: right;
+      position: relative;
+      top: -40px;
+    }
+
+    iframe{
+      width: 100%;
+      height: 500px;
+      display: none;
+    }
+
+    .alert{
+      display: none;
+    }
+  }
 }

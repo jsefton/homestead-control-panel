@@ -7,16 +7,48 @@
 
 require('./bootstrap');
 
-window.Vue = require('vue');
+$(function() {
+    $(document).on('click', '.terminal-task', function(e) {
+        e.preventDefault();
+        var link = $(this).attr('href');
+        var terminal = $('#terminal');
+        terminal.find('iframe').attr('src', link);
 
-/**
- * Next, we will create a fresh Vue application instance and attach it to
- * the page. Then, you may begin adding components to this application
- * or customize the JavaScript scaffolding to fit your unique needs.
- */
+        if(!terminal.hasClass('-active')) {
+            toggleLogs();
+        }
+    });
 
-Vue.component('example', require('./components/Example.vue'));
+    $(document).on('click', '#terminal .btn--close', function(e) {
+        e.preventDefault();
+        toggleLogs();
+    });
 
-const app = new Vue({
-    el: '#app'
+    function toggleLogs()
+    {
+        var terminal = $('#terminal');
+
+        if(terminal.find('iframe').attr('src') == "") {
+            var terminal = $('#terminal');
+            if(terminal.hasClass('-active')) {
+                terminal.removeClass('-active')
+                terminal.find('.alert').slideUp()
+                terminal.find('.btn--close').text('Show');
+            } else {
+                terminal.addClass('-active')
+                terminal.find('.alert').slideDown()
+                terminal.find('.btn--close').text('Hide');
+            }
+        } else {
+            if(terminal.hasClass('-active')) {
+                terminal.removeClass('-active').find('iframe').slideUp()
+                terminal.find('.btn--close').text('Show');
+            } else {
+                terminal.addClass('-active').find('iframe').slideDown()
+                terminal.find('.btn--close').text('Hide');
+            }
+        }
+    }
 });
+
+

@@ -57,7 +57,7 @@
     </script>
 </head>
 <body>
-<div class="terminal-heading"><a href="{{ url()->previous() }}" class="btn btn-lg btn-success pull-right">Close</a>{{ $logTitle }}</div>
+<div class="terminal-heading">{{ $logTitle }}</div>
     <div class="wrapper">
         <div id="tail"></div>
     </div>

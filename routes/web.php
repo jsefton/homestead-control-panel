@@ -23,4 +23,5 @@ Route::group(['prefix' => '/homestead'], function(){
    Route::get('/{id}/sites/refresh', 'HomesteadController@fetchSites');
 });
 
+
 Route::get('/terminal/tail/{log}', 'TerminalController@view');

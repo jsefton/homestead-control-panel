@@ -8364,3 +8364,19 @@ button.close {
   border-radius: 0;
 }
 
+.wrapper #terminal .btn--close {
+  float: right;
+  position: relative;
+  top: -40px;
+}
+
+.wrapper #terminal iframe {
+  width: 100%;
+  height: 500px;
+  display: none;
+}
+
+.wrapper #terminal .alert {
+  display: none;
+}
+

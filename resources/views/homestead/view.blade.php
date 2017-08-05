@@ -16,13 +16,29 @@
                                 Memory: {{ $box->memory }}MB</div>
                         </div>
                     </div>
-                    <a href="{{ url('/homestead/' . $box->id . '/task/sites-fetch') }}" class="btn btn-default btn-lg">Refresh Site List</a>
-                    <a href="{{ url('/homestead/' . $box->id . '/task/provision') }}" class="btn btn-info btn-lg">Provision Box</a>
-                    <a href="{{ url('/homestead/' . $box->id . '/task/shutdown') }}" class="btn btn-danger btn-lg">Shutdown Box</a>
+                    <a href="{{ url('/homestead/' . $box->id . '/task/sites-fetch') }}" class="terminal-task btn btn-default btn-lg">Refresh Site List</a>
+                    <a href="{{ url('/homestead/' . $box->id . '/task/provision') }}" class="terminal-task btn btn-info btn-lg">Provision Box</a>
+                    <a href="{{ url('/homestead/' . $box->id . '/task/shutdown') }}" class="terminal-task btn btn-danger btn-lg">Shutdown Box</a>
                 @else
-                    <p class="alert alert-danger">IP Address: {{ $box->ip_address }} - Power: Off</p>
-                    <a href="{{ url('/homestead/' . $box->id . '/task/power') }}" class="btn btn-primary btn-lg">Power On Box</a>
+                    <div class="alert alert-warning">
+                        <div class="row">
+                            <div class="col-sm-6">Power: Off<br />
+                                IP Address: {{ $box->ip_address }}<br /></div>
+                            <div class="col-sm-6">CPUs: {{ $box->cpus }}<br />
+                                Memory: {{ $box->memory }}MB</div>
+                        </div>
+                    </div>
+                    <a href="{{ url('/homestead/' . $box->id . '/task/power') }}" class="terminal-task btn btn-primary btn-lg">Power On Box</a>
                 @endif
+            </div>
+
+            <div id="terminal">
+                <div class="page-header">
+                    <h2>Logs</h2>
+                    <div class="btn btn-default btn--close">Show</div>
+                </div>
+                <iframe src="" frameborder="0"></iframe>
+                <p class="alert alert-info">There are no logs to show yet.</p>
             </div>
 
             <div class="page-header">
