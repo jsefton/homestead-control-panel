@@ -31,6 +31,13 @@ Copy the environment example file. You should not need to change anything inside
 ```bash
 cp .env.example .env
 ```
+Connect to your Valet MySQL and create a database called `homestead-control`
+
+Then run migrations:
+
+```bash
+php artisan migrate
+```
 
 Then just visit: http://homestead-control.dev
 
