@@ -19,17 +19,22 @@
                     <thead>
                         <tr>
                             <th>Box</th>
+                            <th>Power</th>
+                            <th>Sites</th>
                             <th>Homestead.yaml</th>
                             <th>Vagrant Location</th>
+                            <th></th>
                         </tr>
                     </thead>
                     <tbody>
                     @foreach($boxes as $box)
                         <tr>
                             <td>{!! $box->box_name !!}</td>
+                            <td>@if($box->powerStatus()) <span class="label label-primary">On</span> @else <span class="label label-danger">Off</span> @endif</td>
+                            <td>{!! $box->sites->count() !!}</td>
                             <td>{!! $box->yaml_location !!}</td>
                             <td>{!! $box->vagrant_file_location !!}</td>
-                            <td><a href="{{ url('/homestead/' . $box->id) }}" class="btn btn-primary">Manage</a></td>
+                            <td><a href="{{ url('/homestead/' . $box->id) }}" class="btn btn-default">Manage</a></td>
                         </tr>
                     @endforeach
                     </tbody>
