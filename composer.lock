@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "54ca6de90b96e5ce5c96f395ab5d5579",
+    "content-hash": "bc679bd19f8e3cdde88f3356a828d644",
     "packages": [
         {
             "name": "dnoegel/php-xdg-base-dir",
@@ -277,6 +277,47 @@
                 "migrations"
             ],
             "time": "2017-08-04T22:02:52+00:00"
+        },
+        {
+            "name": "jsefton/php-dotenv-parser",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/jsefton/php-dotenv-parser.git",
+                "reference": "dbd3da8fa789e5d45a543c97a7b14352436d4cac"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/jsefton/php-dotenv-parser/zipball/dbd3da8fa789e5d45a543c97a7b14352436d4cac",
+                "reference": "dbd3da8fa789e5d45a543c97a7b14352436d4cac",
+                "shasum": ""
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Jsefton": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Jamie Sefton",
+                    "email": "info@jamie-sefton.co.uk"
+                }
+            ],
+            "description": "Allows you get .env file as array and convert array back to .env file",
+            "homepage": "https://github.com/jsefton/php-dotenv-parser",
+            "keywords": [
+                "array-env",
+                "dotenv",
+                "env",
+                "parser",
+                "php"
+            ],
+            "time": "2017-08-07 22:13:53"
         },
         {
             "name": "laravel/framework",
@@ -2133,6 +2174,56 @@
             "time": "2015-05-11T14:41:42+00:00"
         },
         {
+            "name": "laravel/homestead",
+            "version": "v6.0.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/laravel/homestead.git",
+                "reference": "ee580963250b7f4e66c363ffd81ef9725669413f"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/laravel/homestead/zipball/ee580963250b7f4e66c363ffd81ef9725669413f",
+                "reference": "ee580963250b7f4e66c363ffd81ef9725669413f",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^5.6 || ^7.0",
+                "symfony/console": "~2.3|~3.0",
+                "symfony/process": "~2.3|~3.0",
+                "symfony/yaml": "~2.3|~3.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^5.7 || ^6.0"
+            },
+            "bin": [
+                "bin/homestead"
+            ],
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "4.0-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Laravel\\Homestead\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Taylor Otwell",
+                    "email": "taylorotwell@gmail.com"
+                }
+            ],
+            "description": "A virtual machine for web artisans.",
+            "time": "2017-08-04T22:36:36+00:00"
+        },
+        {
             "name": "mockery/mockery",
             "version": "0.9.9",
             "source": {
@@ -3404,7 +3495,9 @@
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": [],
+    "stability-flags": {
+        "jsefton/php-dotenv-parser": 20
+    },
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
