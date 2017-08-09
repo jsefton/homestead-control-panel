@@ -27,7 +27,7 @@ Route::group(['prefix' => '/homestead'], function(){
 
    Route::post('/{id}/sites/add', 'HomesteadController@storeSite');
    Route::get('/{id}/sites/{siteId}', 'HomesteadController@viewSite');
-   Route::get('/{id}/db-export', 'HomesteadController@exportDatabase');
+   Route::post('/{id}/db-export', 'HomesteadController@exportDatabase');
 });
 
 
