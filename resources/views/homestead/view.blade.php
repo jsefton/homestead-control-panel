@@ -20,6 +20,23 @@
                     <a href="{{ url('/homestead/' . $box->id . '/task/db-export-all') }}" class="terminal-task btn btn-warning btn-lg">Export all databases</a>
                     <a href="{{ url('/homestead/' . $box->id . '/task/provision') }}" class="terminal-task btn btn-info btn-lg">Provision Box</a>
                     <a href="{{ url('/homestead/' . $box->id . '/task/shutdown') }}" class="terminal-task btn btn-danger btn-lg">Shutdown Box</a>
+                    <br>
+                    <br>
+                    <form method="POST" action="/homestead/{{$box->id}}/db-export/">
+                    {{ csrf_field() }}
+                    <div class="row">
+                        <div class="col-sm-5">
+                            <div class="form-group">
+                              <div class="input-group">
+                                <input type="text" name="database" class="form-control input-lg" placeholder="Database Name">
+                                <span class="input-group-btn">
+                                  <button class="btn btn-primary btn-lg" type="submit">Export Database</button>
+                                </span>
+                              </div>
+                            </div>
+                        </div>
+                    </div>
+                    </form>
                 @else
                     <div class="alert alert-warning">
                         <div class="row">

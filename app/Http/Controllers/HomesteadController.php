@@ -46,6 +46,18 @@ class HomesteadController extends Controller
         return view('homestead.sites.add')->with(['box' => $homestead]);
     }
 
+    public function exportDatabase($id, Request $request)
+    {
+        $command = 'homestead:db-export --box=' . $id . ' --db=' . $request->get('database');
+
+        dispatch(new ExecuteTask($command));
+        session()->forget('tail_offset');
+
+        return redirect('/homestead/' . $id . '?log=show');
+
+    }
+
+
     public function storeSite(Request $request, $id)
     {
         $command = 'homestead:add-site --box=' . $id . ' --domain=' . $request->get('site_domain') . ' --folder=' . $request->get('site_path');
