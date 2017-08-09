@@ -31,7 +31,7 @@ class HomesteadController extends Controller
         $homestead = Homestead::find($id);
         return view('homestead.view')->with(['box' => $homestead]);
     }
-
+    
     public function task($id, $task)
     {
         $command = 'homestead:' . $task . " --box=" . $id;
@@ -45,6 +45,18 @@ class HomesteadController extends Controller
         $homestead = Homestead::find($id);
         return view('homestead.sites.add')->with(['box' => $homestead]);
     }
+
+    public function exportDatabase($id, Request $request)
+    {
+        $command = 'homestead:db-export --box=' . $id . ' --db=' . $request->database;
+
+        dispatch(new ExecuteTask($command));
+        session()->forget('tail_offset');
+
+        return redirect('/homestead/' . $id . '?log=show');
+
+    }
+
 
     public function storeSite(Request $request, $id)
     {
