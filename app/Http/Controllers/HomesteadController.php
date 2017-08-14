@@ -35,8 +35,20 @@ class HomesteadController extends Controller
     public function task($id, $task)
     {
         $command = 'homestead:' . $task . " --box=" . $id;
-        dispatch(new ExecuteTask($command));
-        session()->forget('tail_offset');
+
+        if($task == "reboot") {
+            $command = 'homestead:shutdown --box=' . $id;
+            dispatch(new ExecuteTask($command));
+
+            $command = 'homestead:power --box=' . $id;
+            dispatch(new ExecuteTask($command));
+            session()->forget('tail_offset');
+        } else {
+            dispatch(new ExecuteTask($command));
+            session()->forget('tail_offset');
+        }
+
+
         return view('layouts.terminal')->with(['logTitle' => 'Running Task: ' . $task]);
     }
 
